@@ -1,3 +1,4 @@
+import os
 
 def main():
     path = "books/frankenstein.txt"
