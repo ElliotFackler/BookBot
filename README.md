@@ -5,9 +5,11 @@ BookBot is a command-line tool that produces a neat report on character count an
 BookBot is my first [Boot.dev](https://www.boot.dev) project!
 
 Features:
-* Counts total words in a file.
-* Counts total characters in a file.
-* Produces a terminal report of the total word count and the character count along with a list of the characters from most used to least used.
+* Counts total words.
+* Counts total characters.
+* Finds the five most common words.
+* Sorts the characters from most common to least common with number of appearances.
+* Produces a terminal report of all this info.
 
 Requirements:
 * Python 3
@@ -19,7 +21,6 @@ cd BookBot
 
 Instructions:
 * You can run this program using the following command "Python3 main.py [path to book]"
-* How to submit file: bootdev run -s
 
 Tech Stack:
 * Python3
