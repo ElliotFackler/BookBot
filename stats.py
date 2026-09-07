@@ -1,4 +1,3 @@
-from collections import Counter
 import string
 
 # Get and return the word count of the txt file
@@ -13,16 +12,16 @@ def get_most_common_words(book_contents) -> list:
     words = lowercase_with_no_punctuation.split()
     word_counts = {}
     for word in words:
-        if (word in word_counts):
+        if word in word_counts:
             word_counts[word] = word_counts.get(word) + 1
         else:
             word_counts[word] = 1
 
     i = 0
-    five_most_common_words = {}
+    five_most_common_words = [()]
     while i < 5:
         most_common_word = max(word_counts, key=word_counts.get)
-        five_most_common_words[i] = (most_common_word, max(word_counts.values()))
+        five_most_common_words.append(most_common_word, max(word_counts.values()))
         del word_counts[most_common_word]
         i = i + 1
 
