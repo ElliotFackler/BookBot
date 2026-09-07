@@ -30,8 +30,7 @@ def print_report(path1, word_count, sorted_list, five_most_common_words):
             print(f"{i[0]}: {i[1]}")
 
     print("The Five Most Common Words Are...")
-
-    for i in five_most_common_words:
+    for i in range(0, 4):
         print(f"{i + 1} Place: '{five_most_common_words[i][0]}' appears {five_most_common_words[i][1]} times")
 
 # Check if the user input contains a txt file path

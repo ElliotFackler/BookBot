@@ -18,10 +18,10 @@ def get_most_common_words(book_contents) -> list:
             word_counts[word] = 1
 
     i = 0
-    five_most_common_words = [()]
+    five_most_common_words = []
     while i < 5:
         most_common_word = max(word_counts, key=word_counts.get)
-        five_most_common_words.append(most_common_word, max(word_counts.values()))
+        five_most_common_words.append((most_common_word, max(word_counts.values())))
         del word_counts[most_common_word]
         i = i + 1
 
@@ -41,9 +41,23 @@ def get_char_count(book_contents) -> dict:
 # Convert the character dictionary into a list sorted by number of appearances of each character
 def chars_dict_to_sorted_list(char_count_dict) -> list:
     char_count_list = list(char_count_dict.items())
-    sorted_list = sorted(char_count_list, reverse=True, key=sort_on)
+    sorted_list = sorter(char_count_list, key=sort_on)
     return sorted_list
 
 # Return the second element of a tuple so the list is sorted by the value
 def sort_on(char_tuple) -> int:
     return char_tuple[1]
+
+# Sort the list in a descending order from most common character to least common
+def sorter(items, key=None) -> list:
+    result = items
+
+    for i in range(1, len(result)):
+        current = result[i]
+        j = i
+        while j > 0 and key(current) > key(result[j-1]):
+            result[j] = result[j-1]
+            j -= 1
+        result[j] = current
+
+    return result
