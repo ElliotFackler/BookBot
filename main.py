@@ -1,5 +1,6 @@
 from stats import get_word_count, get_char_count, chars_dict_to_sorted_list, get_most_common_words
 import sys
+import os
 
 def main():
     is_input_valid(sys.argv)
@@ -37,6 +38,11 @@ def print_report(path1, word_count, sorted_list, five_most_common_words):
 def is_input_valid(input):
     if (len(input) < 2):
         print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    if not os.path.isfile(input[1]):
+        print("Usage: python3 main.py <path_to_book>")
+        print(f"Error: File not found at {input[1]}")
         sys.exit(1)
 
 if __name__ == "__main__":
